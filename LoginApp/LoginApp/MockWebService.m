@@ -78,6 +78,8 @@ static MockWebService *sharedInstance = nil;
     });
 }
 
+#pragma mark - methods
+
 - (BOOL)isValidSessionKey:(NSString *)sessionKey {
     static NSTimeInterval timeOut = 1.0 * 60.0;
     NSDate *date = [[self defaultDateFromatter] dateFromString:sessionKey];

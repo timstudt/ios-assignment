@@ -11,8 +11,8 @@
 
 static const NSString *kEmailRegex = @"\\w+@shopgun+?\\.[a-zA-Z]{2,6}";
 
-static NSString *const kEmailDomain = @"@shopgun";
+//static NSString *const kEmailDomain = @"@shopgun";
 
-static const NSUInteger kPasswordLength = 6;
+static const NSUInteger kPasswordMinLength = 6;
 
 #endif /* Header_h */

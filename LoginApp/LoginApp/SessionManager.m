@@ -61,7 +61,6 @@ static SessionManager *sharedInstance = nil;
                     //ToDo: archive or store in keychain
                     self.sessionKey = sessionKey;
                     self.user = [[UserModel alloc] initWithName:[username removeDomainFromEmail]];
-            
                 }
                 
                 if (completion) {

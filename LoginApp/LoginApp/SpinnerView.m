@@ -77,7 +77,7 @@ static SpinnerView *sharedInstance = nil;
     if (!_spinner) {
         UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:self.bounds];
         spinner.hidesWhenStopped = YES;
-        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
         spinner.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:spinner];
         [spinner addDefaultConstraints];

@@ -18,7 +18,7 @@
 }
 
 - (BOOL)isValidPassword {
-    return self.length >= kPasswordLength;
+    return self.length >= kPasswordMinLength;
 }
 
 @end

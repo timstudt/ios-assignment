@@ -37,16 +37,7 @@
     [self updateUI];
 }
 
-- (void)setupUI {
-    
-    [self.navigationItem setHidesBackButton:YES];
-    [self showLoggedInView:[SessionManager sharedManager].isValidSession];
-    
-}
-
-- (void)updateUI {
-    [self showLoggedInView:[SessionManager sharedManager].isValidSession];
-}
+#pragma mark - Actions
 
 - (IBAction)didTapLoginButton:(id)sender {
     if ([[SessionManager sharedManager] isValidSession]) {
@@ -58,6 +49,19 @@
     } else {
         [self performSegueWithIdentifier:@"MainToLogin" sender:self];
     }
+}
+
+#pragma mark - privated methods
+
+- (void)setupUI {
+    
+    [self.navigationItem setHidesBackButton:YES];
+    [self showLoggedInView:[SessionManager sharedManager].isValidSession];
+    
+}
+
+- (void)updateUI {
+    [self showLoggedInView:[SessionManager sharedManager].isValidSession];
 }
 
 - (void)showLoggedInView:(BOOL)show {

@@ -25,6 +25,8 @@
 
 @implementation LoginViewController
 
+#pragma mark - View life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
@@ -133,15 +135,6 @@
     [self updateButton];
 }
 
-- (void)hideKeyboard {
-    
-    if (self.userAccountTextField.isFirstResponder) {
-        [self.userAccountTextField resignFirstResponder];
-    } else if (self.passwordTextField.isFirstResponder) {
-        [self.passwordTextField resignFirstResponder];
-    }
-}
-
 #pragma mark - keyboardNotifications
 
 - (void)changeToolbarFrame:(NSNotification *)notification
@@ -160,6 +153,20 @@
 }
 
 #pragma mark - private methods
+
+- (void)hideKeyboard {
+    
+    if (self.userAccountTextField.isFirstResponder) {
+        [self.userAccountTextField resignFirstResponder];
+    } else if (self.passwordTextField.isFirstResponder) {
+        [self.passwordTextField resignFirstResponder];
+    }
+}
+
+- (BOOL)validateTextFields {
+    
+    return  self.userAccountTextField.text.isValidUsername && self.passwordTextField.text.isValidPassword;
+}
 
 - (void)setupUI {
     
@@ -220,11 +227,6 @@
     self.passwordTextField.hidden = !show;
     self.loginButton.hidden = !show;
     self.cancelButton.hidden = !show;
-}
-
-- (BOOL)validateTextFields {
-    
-    return  self.userAccountTextField.text.isValidUsername && self.passwordTextField.text.isValidPassword;
 }
 
 @end
