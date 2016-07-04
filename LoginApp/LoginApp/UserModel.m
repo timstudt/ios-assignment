@@ -12,12 +12,12 @@
 
 - (instancetype)initWithName: (NSString *)name {
     if (self = [super init]) {
-        self.name = name;
+        _name = name;
     }
     return self;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@:\nname: %@", [self class], self.name];
+    return [NSString stringWithFormat:@"%@:\nname: %@", [self class], _name];
 }
 @end
