@@ -70,22 +70,7 @@
 - (IBAction)didTapLogin:(id)sender {
     
     [self hideKeyboard];
-    
-    [SpinnerView showInView:self.viewContainer];
-
-    NSString *username = self.userAccountTextField.text;
-    NSString *password = self.passwordTextField.text;
-   
-    [SessionManager loginWithUsername:username
-                             password:password
-                    completionHandler:^(BOOL success, NSError *error) {
-        [SpinnerView hide];
-        if (success) {
-            [self performSegueWithIdentifier:@"LoginToMain" sender:self];
-        } else {
-            [self showAlertError:error completion:nil];
-        }
-    }];
+    [self sendLoginRequest];
 }
 
 - (IBAction)didTapCancel:(id)sender {
@@ -153,6 +138,24 @@
 }
 
 #pragma mark - private methods
+
+- (void)sendLoginRequest {
+    [SpinnerView showInView:self.viewContainer];
+    
+    NSString *username = self.userAccountTextField.text;
+    NSString *password = self.passwordTextField.text;
+    
+    [SessionManager loginWithUsername:username
+                             password:password
+                    completionHandler:^(BOOL success, NSError *error) {
+                        [SpinnerView hide];
+                        if (success) {
+                            [self performSegueWithIdentifier:@"LoginToMain" sender:self];
+                        } else {
+                            [self showAlertError:error completion:nil];
+                        }
+                    }];
+}
 
 - (void)hideKeyboard {
     
